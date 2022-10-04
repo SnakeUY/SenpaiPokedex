@@ -11,11 +11,11 @@ const Navbar = () =>{
                     Pokédex
                  </span> </div> 
                  <div className="type-order">
-                #<img src="/Sprites/Icons/Arrow.svg" alt="arrow"/>
+                #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
                  </div>
             </div>
-                  <div>
-                  <input type="text" placeholder="&#xF002; Search"/>
+                  <div className="searchBar">
+                  <input type="text" placeholder="&#xF002; Search" className="FontAw"/>
                   </div>
         </nav>
     )

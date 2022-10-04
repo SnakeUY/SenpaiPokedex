@@ -18,15 +18,30 @@
                url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
   }
   
+/* Generales */
+
+  body{height: 100vh;}
+  nav{height: 20vh;}
+  .margins{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+/* Especificos */
 
 .title{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 70%;
+  align-items: center;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
 }
 .image-logo{
-  height: 30%;
+  height: 50px;
   display: flex;
 }
 .text-title{
@@ -34,27 +49,23 @@
   font-size: 32px;
   display: flex;
 }
-body{
-  height: 100vh;
-}
-nav{
-  height: 20vh;
-}
 .type-order{
-  cursor: pointer;
-}
-.margins{
-  margin-left: 5%;
-  margin-right: 5%;
-}
-.logo{
   display: flex;
-  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  font-family: 'Poppins';
 }
-input.empty {
-  font-family: "FontAwesome";
+.arrowNav{margin-top: -20%;}
+.searchBar{
+  display: flex;
+  justify-content: center;
+}
+.FontAw{
+  font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  text-align: center;
+  width: 80%;
+  height: 10%;
 }
-
