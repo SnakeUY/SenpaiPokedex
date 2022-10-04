@@ -39,9 +39,10 @@
 .logo{
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .image-logo{
-  height: 50px;
+  height: 35px;
   display: flex;
 }
 .text-title{
@@ -55,17 +56,22 @@
   align-items: center;
   font-family: 'Poppins';
 }
-.arrowNav{margin-top: -20%;}
-.searchBar{
+.arrowNav{
+  height: 23px;
+}
+.searchBar {
   display: flex;
   justify-content: center;
 }
 .FontAw{
-  font-family: FontAwesome;
+  font-family: FontAwesome, 'Poppins';
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
   text-align: center;
   width: 80%;
-  height: 10%;
+  height: 22px;
+  border-radius: 7px;
+  border-color: lightgrey;
+  border-style: groove; 
 }

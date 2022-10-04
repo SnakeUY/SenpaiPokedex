@@ -15,7 +15,7 @@ const Navbar = () =>{
                  </div>
             </div>
                   <div className="searchBar">
-                  <input type="text" placeholder="&#xF002; Search" className="FontAw"/>
+                  <input type="text" placeholder="&#xF002; Buscar" className="FontAw"/>
                   </div>
         </nav>
     )
