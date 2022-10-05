@@ -58,7 +58,7 @@
 .pokemon-container{
   display: grid;
   height: 200px;
-
+  cursor: pointer;
   margin-right: 2vw;
 }
 .divImagePokemon{
