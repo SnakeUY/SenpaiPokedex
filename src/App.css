@@ -32,6 +32,26 @@
     width: 90%;
     height: 85vh;
   }
+  .bodyPokemon{
+    display: grid;
+    height: 150px;
+  }
+  .footerPokemon{
+    display: grid;
+    height: 52px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins';
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+    margin: -1px;
+  }
+  .headerPokemon{
+    text-align: end;
+    margin-right: 5px;
+    font-family: 'Poppins';
+  }
 
   /*En proceso*/
 
@@ -41,17 +61,15 @@
 
   margin-right: 2vw;
 }
+.divImagePokemon{
+  display: grid;
+  justify-content: center;
+}
 .imgPokemon{
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
-.borderEletric{
-  width: 26vw;
-  border-color: yellow;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 2px;
-}
+
 /* Especificos */
 
 .title{
@@ -100,3 +118,112 @@
   border-color: lightgrey;
   border-style: groove; 
 }
+.borderPokemon{
+  width: 26vw;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+/* Colores Electric */
+
+.borderElectric{
+  border-color:#f9cf30;
+}
+.headerElectric{
+  color: #f9cf30;
+}
+.footerElectric{
+  background-color: #f9cf30;
+}
+/* Colores Grass*/
+
+.borderGrass{
+  border-color:#74cb48;
+}
+.headerGrass{
+  color: #74cb48;
+}
+.footerGrass{
+  background-color: #74cb48;
+}
+
+/* Colores Water*/
+.borderWater{
+  border-color:#6493eb;
+}
+.headerWater{
+  color: #6493eb;
+}
+.footerWater{
+  background-color: #6493eb;
+}
+
+/* Colores Fire*/
+.borderFire{
+  border-color:#f57d31;
+}
+.headerFire{
+  color: #f57d31;
+}
+.footerFire{
+  background-color: #f57d31;
+}
+/* Colores Bug*/
+.borderBug{
+  border-color:#a78723;
+}
+.headerBug{
+  color: #a78723;
+}
+.footerBug{
+  background-color: #a78723;
+}
+/* Colores Steel*/
+
+.borderSteel{
+  border-color:#b7b9d0;
+}
+.headerSteel{
+  color: #b7b9d0;
+}
+.footerSteel{
+  background-color: #b7b9d0;
+}
+
+/* Colores Normal*/
+
+.borderNormal{
+  border-color:#aaa67f;
+}
+.headerNormal{
+  color: #aaa67f;
+}
+.footerNormal{
+  background-color: #aaa67f;
+}
+
+/* Colores Ghost*/
+
+.borderGhost{
+  border-color: #70559b;
+}
+.headerGhost{
+  color: #70559b;
+}
+.footerGhost{
+  background-color: #70559b;
+}
+
+/* Colores Psychic*/
+
+.borderPsychic{
+  border-color: #fb5584;
+}
+.headerPsychic{
+  color: #fb5584;
+}
+.footerPsychic{
+  background-color: #fb5584;
+}
+

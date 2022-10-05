@@ -6,7 +6,7 @@ const PokemonBank = ({pokemon}) =>{
     {
         pokemon.map((poke,key)=>{
         return (
-            <div className={"pokemon-container border"+ poke.species} key={key}>
+            <div className={"pokemon-container borderPokemon border"+ poke.species} key={key}>
                 <div className="bodyPokemon">
                     <div className={"headerPokemon header" + poke.species}>#{poke.id}</div>
                     <div className="divImagePokemon">
