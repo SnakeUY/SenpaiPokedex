@@ -2,7 +2,7 @@ import React from "react";
 
 const PokemonBank = ({pokemon,select}) =>{
  return(
-    <div className="container margins">
+    <div className="container marginsPokemons">
     {
         pokemon.map((poke,key)=>{
         return (
