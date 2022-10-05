@@ -20,20 +20,45 @@
   
 /* Generales */
 
-  body{height: 100vh;}
-  nav{height: 20vh;}
+  nav{height: 15vh; margin-top: 5%;}
   .margins{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 85vh;
   }
 
+  /*En proceso*/
+
+.pokemon-container{
+  display: grid;
+  height: 200px;
+
+  margin-right: 2vw;
+}
+.imgPokemon{
+  width: 80px;
+  height: 80px;
+}
+.borderEletric{
+  width: 26vw;
+  border-color: yellow;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+}
 /* Especificos */
 
 .title{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 70%;
+  height: 60%;
   align-items: center;
 }
 .logo{
@@ -69,7 +94,7 @@
   font-weight: normal;
   text-decoration: inherit;
   text-align: center;
-  width: 80%;
+  width: 90%;
   height: 22px;
   border-radius: 7px;
   border-color: lightgrey;
