@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () =>{
+const Navbar = ({change,stateChange,search}) =>{
     return (
         <nav> 
             <div className="title margins">
@@ -10,12 +10,19 @@ const Navbar = () =>{
                  <span className="text-title margins">
                     Pokédex
                  </span> </div> 
-                 <div className="type-order">
-                #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
-                 </div>
+                 <div className="type-order" onClick={() => change()}>
+                 {(!stateChange)?
+                <>
+                    #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
+                </>
+                 :
+                <>
+                    A<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
+                </>
+                }</div>
             </div>
                   <div className="searchBar">
-                  <input type="text" placeholder="&#xF002; Buscar" className="FontAw"/>
+                  <input type="text" placeholder="&#xF002; Buscar" className="FontAw" onChange={(e)=> search(e)}/>
                   </div>
         </nav>
     )

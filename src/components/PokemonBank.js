@@ -1,10 +1,9 @@
 import React from "react";
 const OrderByValue= ({pokemon,select}) =>{
-    console.log(pokemon)
     return(
         <div className="container marginsPokemons">
     {
-        pokemon.map((poke,key)=>{
+        pokemon.sort((a,b)=>a.id-b.id).map((poke,key)=>{
             const numero= addLeadingZeros(poke.id,3);
             return <PokemonBank pokemons={poke} id={key} select={select} numero={numero}></PokemonBank>
         }
@@ -13,11 +12,28 @@ const OrderByValue= ({pokemon,select}) =>{
 </div> )}
 
 const OrderByAlphabetic= ({pokemon,select}) =>{
-    console.log(pokemon)
     return(
         <div className="container marginsPokemons">
     {
-        pokemon.map((poke,key)=>{
+        pokemon.sort(function(a,b){
+            if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+            if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+            return 0;
+        }).map((poke,key)=>{
+            const numero= addLeadingZeros(poke.id,3);
+            return <PokemonBank pokemons={poke} id={key} select={select} numero={numero}></PokemonBank>
+        }
+
+    )}
+</div> )}
+
+
+
+const FilterPokemons = ({pokemon,select}) =>{
+    return(
+        <div className="container marginsPokemons">
+    {
+            pokemon.map((poke,key)=>{
             const numero= addLeadingZeros(poke.id,3);
             return <PokemonBank pokemons={poke} id={key} select={select} numero={numero}></PokemonBank>
         }
@@ -27,7 +43,6 @@ const OrderByAlphabetic= ({pokemon,select}) =>{
 
 
 const PokemonBank = ({pokemons,id,select,numero}) =>{
-    console.log(pokemons)
         return (
             <div className={"pokemon-container borderPokemon border"+ pokemons.types[0]} key={id} onClick={()=> select(id)}>
                 <div className="bodyPokemon">
@@ -53,4 +68,4 @@ function addLeadingZeros(num, totalLength) {
 
   
 
-export {OrderByValue,PokemonBank,OrderByAlphabetic}
+export {OrderByValue,PokemonBank,OrderByAlphabetic,FilterPokemons}

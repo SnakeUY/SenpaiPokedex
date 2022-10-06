@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import {useState} from "react";
-import { OrderByValue } from './components/PokemonBank';
+import { OrderByAlphabetic, OrderByValue, FilterPokemons} from './components/PokemonBank';
 
 function App() {
   const [state,setState] = useState({
@@ -19,23 +19,58 @@ function App() {
   })
   const selectedpokemon =(id) => {
     setState ({...state,PokemonSelected: state.pokemons[id]})
-  console.log(state.PokemonSelected)
 } 
 const [OrderById,setOrderById]=useState (true)
+const ChangeOrder = ()=>{
+  if(OrderById === true){
+    setOrderById(false)
+  }else{
+    setOrderById(true)
+  }
+}
+const [filteredList, setFilteredList] = new useState(state.pokemons);
 
-
+const filterBySearch = (event) => {
+  const query = event.target.value;
+  let updatedList = [...state.pokemons];
+  updatedList = updatedList.filter((item) => {
+    return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+  });
+  setFilteredList(updatedList);
+  if(event.target.value === ""){
+    updatedList = null
+    setFilteredList(updatedList)
+  }
+};
 
   return (
     <>
-    <Navbar/>
-    {(!OrderById)?""
-    
+    <Navbar
+    change={ChangeOrder}
+    stateChange={OrderById}
+    search={filterBySearch}
+    />
+    {(filteredList)?
+    <FilterPokemons
+    pokemon={filteredList}
+    select={selectedpokemon}
+    />
+    :
+    (!OrderById)?
+    <OrderByAlphabetic
+    pokemon={state.pokemons}
+    select={selectedpokemon}
+    />
     :
     <OrderByValue 
     pokemon={state.pokemons}
     select={selectedpokemon}
     />
     }
+
+
+
+    
     </>
   );
 }
