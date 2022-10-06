@@ -20,6 +20,8 @@ function App() {
   const selectedpokemon =(id) => {
     setState ({...state,PokemonSelected: state.pokemons[id]})
 } 
+
+
 const [OrderById,setOrderById]=useState (true)
 const ChangeOrder = ()=>{
   if(OrderById === true){
@@ -28,7 +30,7 @@ const ChangeOrder = ()=>{
     setOrderById(true)
   }
 }
-const [filteredList, setFilteredList] = new useState(state.pokemons);
+const [filteredList, setFilteredList] = new useState(null);
 
 const filterBySearch = (event) => {
   const query = event.target.value;
@@ -67,6 +69,7 @@ const filterBySearch = (event) => {
     select={selectedpokemon}
     />
     }
+
 
 
 
