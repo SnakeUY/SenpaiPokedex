@@ -1,52 +1,35 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import {useState} from "react";
-import { OrderByAlphabetic, OrderByValue, FilterPokemons} from './components/PokemonBank';
-import ReactDOM from "react-dom/client";
+import {useEffect, useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
-
+import { pokemonList } from './services/pokemons';
 function App() {
+
   const [state,setState] = useState({
-    pokemons:[
-      {id:25,name:"Pikachu",types:["Electric"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:1,name:"Bulbasaur",types:["Grass","Poison"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:7,name:"Squirtle",types:["Water"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:4,name:"Charmander",types:["Fire"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:12,name:"Butterfree",types:["Bug","Flying"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:304,name:"Aron",types:["Steel","Rock"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:132,name:"Ditto",types:["Normal"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:92,name:"Gastly",types:["Ghost","Type"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-      {id:152,name:"Mew",types:["Psychic"],weight:"6,0",height:"0,4",moves:["Mega-Puch","Pay-Day"],description:"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",HP:"035",ATK:"055",DEF:"040",SATK:"050",SDEF:"050",SPD:"090"},
-    ].sort((a,b)=>a.id-b.id), PokemonSelected:null,
+    pokemons:pokemonList, PokemonSelected:null
   })
-  const selectedpokemon =(id) => {
-    setState ({...state,PokemonSelected: state.pokemons[id]})
-} 
+  const [filteredList, setFilteredList] = useState(Object.assign([],pokemonList));
+  const [OrderById,setOrderById]=useState (true)
 
+  useEffect(()=>{
+    setFilteredList(OrderById ? filteredList.sort((a,b)=>a.id-b.id) : filteredList.sort(function(a,b){
+      if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+      if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+      return 0;
+  }))
+},[OrderById,filteredList])
 
-const [OrderById,setOrderById]=useState (true)
-const ChangeOrder = ()=>{
-  if(OrderById === true){
-    setOrderById(false)
-  }else{
-    setOrderById(true)
+  const ChangeOrder = ()=>{
+    setOrderById(!OrderById)
   }
-}
-const [filteredList, setFilteredList] = new useState(null);
-
-const filterBySearch = (event) => {
-  const query = event.target.value;
-  let updatedList = [...state.pokemons];
-  updatedList = updatedList.filter((item) => {
-    return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-  });
-  setFilteredList(updatedList);
-  if(event.target.value === ""){
-    updatedList = null
-    setFilteredList(updatedList)
-  }
+const selectedpokemon =(id) => {
+  setState ({PokemonSelected: filteredList.filter((item) => { return item.name.toLowerCase().includes(id.toLowerCase())})})
+};
+const filterBySearch = (value) => {
+  setFilteredList( state.pokemons.filter((item) => {
+    return item.name.toLowerCase().includes(value.toLowerCase())
+  }))
 };
 
   return (
@@ -58,15 +41,13 @@ const filterBySearch = (event) => {
         filterBySearch= {filterBySearch}
         filteredList= {filteredList}
         selectedpokemon= {selectedpokemon}
-        pokemons= {state.pokemons}
         />}></Route>
+
       <Route path= "pokemon" element={<Pokemon
-        
+        Pokemon={state.PokemonSelected}
       />}></Route>
       </Routes>
     </BrowserRouter>
-    
-   
   );
 }
 

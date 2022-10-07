@@ -9,28 +9,10 @@ return (
     stateChange={OrderById}
     search={filterBySearch}
     />
-    {(filteredList)?
     <FilterPokemons
     pokemon={filteredList}
     select={selectedpokemon}
     />
-    :
-    (!OrderById)?
-    <OrderByAlphabetic
-    pokemon={pokemons}
-    select={selectedpokemon}
-    />
-    :
-    <OrderByValue 
-    pokemon={pokemons}
-    select={selectedpokemon}
-    />
-    }
-
-
-
-
-    
     </>
   );
 }

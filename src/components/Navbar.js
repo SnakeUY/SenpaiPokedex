@@ -22,7 +22,7 @@ const Navbar = ({change,stateChange,search}) =>{
                 }</div>
             </div>
                   <div className="searchBar">
-                  <input type="text" placeholder="&#xF002; Buscar" className="FontAw" onChange={(e)=> search(e)}/>
+                  <input type="text" placeholder="&#xF002; Buscar" className="FontAw" onChange={(e)=> search(e.target.value)}/>
                   </div>
         </nav>
     )
