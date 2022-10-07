@@ -129,6 +129,34 @@
   border-width: 2px;
 }
 
+/*Pokemon Selected*/
+.pokemonContainer{
+  width: 100vw;
+  height: 100vh;
+}
+.backgroundPokemon{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40% 60%;
+}
+.divHeaderPokemon{
+  display: grid;
+  grid-area: 1/1/2/2;
+  background-image: url(../public/Sprites/Icons/Pokeball.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Colores Electric */
 
 .borderElectric{

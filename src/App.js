@@ -2,6 +2,10 @@ import './App.css';
 import Navbar from './components/Navbar';
 import {useState} from "react";
 import { OrderByAlphabetic, OrderByValue, FilterPokemons} from './components/PokemonBank';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Pokemon from './pages/pokemon';
+import Home from './pages/principal';
 
 function App() {
   const [state,setState] = useState({
@@ -46,35 +50,23 @@ const filterBySearch = (event) => {
 };
 
   return (
-    <>
-    <Navbar
-    change={ChangeOrder}
-    stateChange={OrderById}
-    search={filterBySearch}
-    />
-    {(filteredList)?
-    <FilterPokemons
-    pokemon={filteredList}
-    select={selectedpokemon}
-    />
-    :
-    (!OrderById)?
-    <OrderByAlphabetic
-    pokemon={state.pokemons}
-    select={selectedpokemon}
-    />
-    :
-    <OrderByValue 
-    pokemon={state.pokemons}
-    select={selectedpokemon}
-    />
-    }
-
-
-
-
+    <BrowserRouter>
+      <Routes>
+        <Route path= "/" element={<Home
+        ChangeOrder= {ChangeOrder}
+        OrderById= {OrderById}
+        filterBySearch= {filterBySearch}
+        filteredList= {filteredList}
+        selectedpokemon= {selectedpokemon}
+        pokemons= {state.pokemons}
+        />}></Route>
+      <Route path= "pokemon" element={<Pokemon
+        
+      />}></Route>
+      </Routes>
+    </BrowserRouter>
     
-    </>
+   
   );
 }
 
