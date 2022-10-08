@@ -1,4 +1,6 @@
 import React from "react";
+import ProgressBar from "@ramonak/react-progress-bar";
+
 const Pokemon =({Pokemon}) => {
     return(
         <>
@@ -15,7 +17,10 @@ const Pokemon =({Pokemon}) => {
                     <div className="divButtons"></div>
 
                 </div>
-                <div className="bodyPokemons"></div>
+                <div className="bodyPokemons">
+                    atack<ProgressBar completed={Pokemon[0].ATK} maxCompleted={200} completedClassName="barCompleted" isLabelVisible="false"/>
+
+                </div>
             </div>
         </div>
          </>

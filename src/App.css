@@ -198,6 +198,10 @@ align-items: center;
   border-radius: 10px;
 }
 
+.barCompleted{
+  background-color: #f9cf30;
+  width: 40%;
+}
 
 
 
