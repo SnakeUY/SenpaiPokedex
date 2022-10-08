@@ -147,26 +147,44 @@
   background-image: url(../public/Sprites/Icons/Pokeball.png);
   background-repeat: no-repeat;
   background-position: right;
+  background-size: 70% 95%;
+  margin-right: 3%;
   filter: invert(1000%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(1000%) contrast(100%);;
 }
 .headerPokemon{
 display: grid;
-height: 20%;
+height: 55%;
 grid-template-columns: 50% 50%;
 grid-template-rows: 100%;
 opacity: 1;
+align-items: center;
 }
 .nameAndArrow{
-  display: grid;
+  display: flex;
   grid-area: 1/1/2/2;
+  align-items: center;
 }
 .idPokemons{
   display: grid;
   grid-area: 1/2/2/3;
+  font-size: medium;
+  font-family: 'PoppinsBold'; 
+  margin-right: 5%;
 }
 
 
+.pokemonArrow{
+  height: 35px;
+  display: flex;
+  transform: rotate(90deg);
+  width: 70px;
+}
 
+.pokemonName{
+  display: flex;
+  font-size: x-large;
+  font-family: 'PoppinsBold';
+}
 
 
 .bodyPokemons{
