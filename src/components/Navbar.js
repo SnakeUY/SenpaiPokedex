@@ -12,14 +12,15 @@ const Navbar = ({change,stateChange,search}) =>{
                  </span> </div> 
                  <div className="type-order" onClick={() => change()}>
                  {(!stateChange)?
-                <>
-                    #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
-                </>
+                    <>
+                        #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
+                    </>
                  :
-                <>
-                    A<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
-                </>
-                }</div>
+                    <>
+                        A<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
+                    </>
+                }
+                </div>
             </div>
                   <div className="searchBar">
                   <input type="text" placeholder="&#xF002; Buscar" className="FontAw" onChange={(e)=> search(e.target.value)}/>
