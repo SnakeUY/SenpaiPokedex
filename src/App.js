@@ -7,7 +7,7 @@ import { pokemonList } from './services/pokemons';
 function App() {
 
   const [state,setState] = useState({
-    pokemons:pokemonList, PokemonSelected:null
+    pokemons:pokemonList
   })
   const [filteredList, setFilteredList] = useState(Object.assign([],pokemonList));
   const [OrderById,setOrderById]=useState (true)
@@ -23,9 +23,8 @@ function App() {
   const ChangeOrder = ()=>{
     setOrderById(!OrderById)
   }
-const selectedpokemon =(id) => {
-  setState ({PokemonSelected: filteredList.filter((item) => { return item.name.toLowerCase().includes(id.toLowerCase())})})
-};
+
+
 const filterBySearch = (value) => {
   setFilteredList( state.pokemons.filter((item) => {
     return item.name.toLowerCase().includes(value.toLowerCase())
@@ -40,11 +39,10 @@ const filterBySearch = (value) => {
         OrderById= {OrderById}
         filterBySearch= {filterBySearch}
         filteredList= {filteredList}
-        selectedpokemon= {selectedpokemon}
         />}></Route>
 
-      <Route path= "pokemon" element={<Pokemon
-        Pokemon={state.PokemonSelected}
+      <Route path= "/:id" element={<Pokemon
+      pokemons={filteredList}
       />}></Route>
       </Routes>
     </BrowserRouter>
