@@ -1,10 +1,15 @@
 import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Link } from "react-router-dom";
+import getHexType from "../services/typesFun";
 const Pokemon =({Pokemon}) => {
 
-    let colorPrincipal = Pokemon[0].colorTypes[0]
-    let colorSecundario = Pokemon[0].colorTypes[1]
+    let colorPrincipal = getHexType(Pokemon[0].types[0])
+    let colorSecundario
+    if (Pokemon[0].types[1]){
+        colorSecundario = getHexType(Pokemon[0].types[1])
+    }
+
     return(
         <>
         <div className="pokemonContainer">
@@ -23,7 +28,7 @@ const Pokemon =({Pokemon}) => {
                         <div className="leftDot">{'<'}</div>
                         <div className="rightDot">{'>'}</div>
                     </div>
-                    <img src="/Sprites/Icons/Pokeball.png" className="pokeballBackground"/>
+                    <img alt="pokeball" src="/Sprites/Icons/Pokeball.png" className="pokeballBackground"/>
                 </div>
                 
                 <img alt="a" src={"/Sprites/Icons/" + Pokemon[0].name.toLowerCase() + ".png"} className="imgPokemonBig" />
@@ -46,14 +51,14 @@ const Pokemon =({Pokemon}) => {
                         <div className={"titleAbout header"+ Pokemon[0].types[0]}>About</div>
                         <div className="weightAbout">
                             <div className="infoAboutStat">
-                                <img src="/Sprites/Icons/Weight.svg" height={"20px"}/> <p>{Pokemon[0].weight} kg </p>
+                                <img alt="Weight" src="/Sprites/Icons/Weight.svg" height={"20px"}/> <p>{Pokemon[0].weight} kg </p>
                             </div>
                             <p className="titleAboutStats">Weight</p>
                         </div>
                         
                         <div className="heightAbout">
                             <div className="infoAboutStat">
-                                <img src="/Sprites/Icons/Height.svg" height={"20px"}/> <p>{Pokemon[0].height} m </p>
+                                <img alt="Height" src="/Sprites/Icons/Height.svg" height={"20px"}/> <p>{Pokemon[0].height} m </p>
                             </div>
                             <p className="titleAboutStats">Weight</p>
                         </div>
