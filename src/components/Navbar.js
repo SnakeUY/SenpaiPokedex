@@ -5,12 +5,12 @@ const Navbar = ({change,stateChange,search}) =>{
         <nav> 
             <div className="title margins">
                  <div className="logo">
-                    <img className="image-logo" src="/Sprites/Icons/Pokeball.png" alt="pokeball"/>
+                    <img className="imageLogo" src="/Sprites/Icons/Pokeball.png" alt="pokeball"/>
                  
-                 <span className="text-title margins">
+                 <span className="textTitle margins">
                     Pokédex
                  </span> </div> 
-                 <div className="type-order" onClick={() => change()}>
+                 <div className="typeOrder" onClick={() => change()}>
                  {(!stateChange)?
                     <>
                         #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>
@@ -23,7 +23,7 @@ const Navbar = ({change,stateChange,search}) =>{
                 </div>
             </div>
                   <div className="searchBar">
-                  <input type="text" placeholder="&#xF002; Buscar" className="FontAw" onChange={(e)=> search(e.target.value)}/>
+                  <input type="text" placeholder="&#xF002; Buscar" className="fontAw" onChange={(e)=> search(e.target.value)}/>
                   </div>
         </nav>
     )

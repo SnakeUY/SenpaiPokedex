@@ -7,7 +7,7 @@
   src: url("../public/Poppins-Bold.ttf");
 }
 @font-face {
-  font-family: "FontAwesome";
+  font-family: "fontAwesome";
   font-weight: normal;
   font-style : normal;
          src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
@@ -66,7 +66,7 @@
 
   /*En proceso*/
 
-.pokemon-container{
+.pokemonContainer{
   display: grid;
   height: 200px;
   cursor: pointer;
@@ -95,16 +95,16 @@
   flex-direction: row;
   align-items: center;
 }
-.image-logo{
+.imageLogo{
   height: 35px;
   display: flex;
 }
-.text-title{
+.textTitle{
   font-family: 'Poppinsbold';
   font-size: 32px;
   display: flex;
 }
-.type-order{
+.typeOrder{
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -117,7 +117,7 @@
   display: flex;
   justify-content: center;
 }
-.FontAw{
+.fontAw{
   font-family: FontAwesome, 'Poppins';
   font-style: normal;
   font-weight: normal;
@@ -200,12 +200,12 @@
 
 
 
-.barwrapper {
+.barWrapper {
   border: 0px solid blue;
   border-radius: 15px;
 }
 
-.barcontainer {
+.barContainer {
   background-color: #e0e0e0;
   height: 10px;
 }
@@ -215,7 +215,7 @@
   border-radius: 15px;
 }
 
-.barlabel {
+.barLabel {
   font-size: 0px;
   color: green;
 }

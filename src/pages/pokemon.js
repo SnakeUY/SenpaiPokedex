@@ -3,13 +3,14 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
 const Pokemon =({pokemons}) => {
-    let index
     let nextItem
 
 
     let id = useParams().id
     const [pokemon, setPokemon] = useState(pokemons.find((poke) => poke.id == id))
     
+    const [index,setIndex] = useState(pokemons.indexOf (pokemon)) 
+    console.log(index)
     let colorPrincipal = getHexType(pokemon.types[0])
     console.log(pokemon)
     let colorSecundario
@@ -18,7 +19,7 @@ const Pokemon =({pokemons}) => {
     }
 
 
-       const pos = pokemons.map((poke) => poke.id).indexOf(id);
+       const pos = pokemons.findIndex((poke) => poke.id==id);
     console.log(pos)
 
 

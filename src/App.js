@@ -10,18 +10,18 @@ function App() {
     pokemons:pokemonList
   })
   const [filteredList, setFilteredList] = useState(Object.assign([],pokemonList));
-  const [OrderById,setOrderById]=useState (true)
+  const [orderById,setOrderById]=useState (true)
 
   useEffect(()=>{
-    setFilteredList(OrderById ? filteredList.sort((a,b)=>a.id-b.id) : filteredList.sort(function(a,b){
+    setFilteredList(orderById ? filteredList.sort((a,b)=>a.id-b.id) : filteredList.sort(function(a,b){
       if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
       return 0;
   }))
-},[OrderById,filteredList])
+},[orderById,filteredList])
 
-  const ChangeOrder = ()=>{
-    setOrderById(!OrderById)
+  const changeOrder = ()=>{
+    setOrderById(!orderById)
   }
 
 
@@ -35,8 +35,8 @@ const filterBySearch = (value) => {
     <BrowserRouter>
       <Routes>
         <Route path= "/" element={<Home
-        ChangeOrder= {ChangeOrder}
-        OrderById= {OrderById}
+        changeOrder= {changeOrder}
+        orderById= {orderById}
         filterBySearch= {filterBySearch}
         filteredList= {filteredList}
         />}></Route>

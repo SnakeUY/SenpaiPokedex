@@ -1,12 +1,12 @@
 import Navbar from '../../components/Navbar';
-import { OrderByAlphabetic, OrderByValue, FilterPokemons} from '../../components/PokemonBank';
-const Home =({ChangeOrder,OrderById,filterBySearch,filteredList,pokemons})=> {
+import { FilterPokemons} from '../../components/PokemonBank';
+const Home =({changeOrder,orderById,filterBySearch,filteredList,pokemons})=> {
 
 return (
     <>
     <Navbar
-    change={ChangeOrder}
-    stateChange={OrderById}
+    change={changeOrder}
+    stateChange={orderById}
     search={filterBySearch}
     />
     <FilterPokemons
