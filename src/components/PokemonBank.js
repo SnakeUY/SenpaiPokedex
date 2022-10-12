@@ -12,7 +12,7 @@ const FilterPokemons = ({pokemon,select}) =>{
 </div> )}
 const PokemonBank = ({pokemon,select,numero}) =>{
         return (
-            <div className={"pokemonContainer borderPokemon border"+ pokemon.types[0]} key={pokemon.id} onClick={()=> select(pokemon.id)}>
+            <div className={"pokemonContainerBank borderPokemon border"+ pokemon.types[0]} key={pokemon.id}>
                 <Link to={`/${pokemon.id}`}>
                 <div className="bodyPokemon">
                     <div className={"headerPokemon header" + pokemon.types[0]}>#{numero}</div>

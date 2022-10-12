@@ -1,28 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
 const Pokemon =({pokemons}) => {
-    let nextItem
 
 
     let id = useParams().id
     const [pokemon, setPokemon] = useState(pokemons.find((poke) => poke.id == id))
     
     const [index,setIndex] = useState(pokemons.indexOf (pokemon)) 
-    console.log(index)
+
+    useEffect(()=>{
+        setPokemon(pokemons.find((poke) => poke.id == id))
+    },[id])
+    useEffect(()=>{
+        setIndex(pokemons.indexOf (pokemon))
+    },[pokemon])
+
+    const nextPos=index+1;
+    const beforePos=index-1;
+
     let colorPrincipal = getHexType(pokemon.types[0])
-    console.log(pokemon)
     let colorSecundario
     if (pokemon.types[1]){
         colorSecundario = getHexType(pokemon.types[1])
     }
-
-
-       const pos = pokemons.findIndex((poke) => poke.id==id);
-    console.log(pos)
-
-
+    
     return(
         <>
         <div className="pokemonContainer">
@@ -32,19 +35,28 @@ const Pokemon =({pokemons}) => {
                         <Link to="/">
                         <div className="nameAndArrow">
                             <img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="pokemonArrow"/>
-                            <span className="pokemonName">{pokemon.name}</span>
+                            <span className="pokemonName" style={{color:"black"}}>{pokemon.name}</span>
                         </div>
                         </Link>
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id,3)}</div>
                     </div>
                     <div className="divButtons">
-
-                        <div className="leftDot">{'<'}</div>
-
-                        <div className="rightDot">{'>'}</div>
-
+                        {pokemons[beforePos] &&
+                        <>
+                            <Link to={`/${pokemons[beforePos].id}`}>
+                                <div className="leftDot" >{'<'}</div>
+                            </Link>
+                        </>
+                        }{pokemons[nextPos] &&
+                        <>
+                            <Link to={`/${pokemons[nextPos].id}`}>
+                                <div className="rightDot" >{'>'}</div>
+                            </Link></>
+                        }
+                        
+                        <div><><img alt="pokeball" src="/Sprites/Icons/Pokeball.png" className="pokeballBackground"/></></div>
                     </div>
-                    <img alt="pokeball" src="/Sprites/Icons/Pokeball.png" className="pokeballBackground"/>
+
                 </div>
                 
                 <img alt="a" src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"} className="imgPokemonBig" />
@@ -94,12 +106,12 @@ const Pokemon =({pokemons}) => {
                             <p className="labelStat">{pokemon.HP}</p><p className="labelStat">{pokemon.ATK}</p><p className="labelStat">{pokemon.DEF}</p><p className="labelStat">{pokemon.SATK}</p><p className="labelStat">{pokemon.SDEF}</p><p className="labelStat">{pokemon.SPD}</p>
                         </div>
                         <div className="divProgressBar">
-                        <p className="labelStat"><ProgressBar completed={pokemon.HP}maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barlabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.ATK} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barlabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.DEF} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barlabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.SATK} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barlabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.SDEF} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barlabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.SPD} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barlabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.HP}maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.ATK} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.DEF} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.SATK} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.SDEF} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.SPD} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
                         </div>
                     </div>
                 </div>
@@ -111,4 +123,5 @@ const Pokemon =({pokemons}) => {
 function addLeadingZeros(num, totalLength) {
     return String(num).padStart(totalLength, '0');
   }
+
 export default Pokemon
