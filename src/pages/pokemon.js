@@ -76,7 +76,8 @@ const Pokemon =({pokemons}) => {
                     }
                         </div>
                     <div className="aboutPokemon">
-                        <div className={"titleAbout header"+ pokemon.types[0]}>About</div>
+                        <div className={"titleAbout"} style={{color:colorPrincipal}}>About</div>
+
                         <div className="weightAbout">
                             <div className="infoAboutStat">
                                 <img alt="Weight" src="/Sprites/Icons/Weight.svg" height={"20px"}/> <p>{pokemon.weight} kg </p>
@@ -84,19 +85,28 @@ const Pokemon =({pokemons}) => {
                             <p className="titleAboutStats">Weight</p>
                         </div>
                         
+                        <div className="hrLeftSide">
+                            <hr className="hrAbout"/>
+                        </div>
+
                         <div className="heightAbout">
                             <div className="infoAboutStat">
                                 <img alt="Height" src="/Sprites/Icons/Height.svg" height={"20px"}/> <p>{pokemon.height} m </p>
                             </div>
-                            <p className="titleAboutStats">Weight</p>
+                            <p className="titleAboutStats">Height</p>
                         </div>
+
+                        <div className="hrRightSide">
+                            <hr className="hrAbout"/>
+                        </div>
+
                         <div className="movesAbout">{pokemon.moves[0]}<br/>{pokemon.moves[1]}<br/><p className="titleAboutStats">Moves</p></div>
                         <div className="descriptionAbout">{pokemon.description}</div>
                     </div>
                     
                     <div className="baseStats">
-                        <p className={"baseStatslbl header"+ pokemon.types[0]}>Base Stats</p>
-                        <div className={"divLabelStat header"+ pokemon.types[0]}>
+                        <p className={"baseStatslbl"} style={{color:colorPrincipal}}>Base Stats</p>
+                        <div className={"divLabelStat"} style={{color:colorPrincipal}}>
                             <p className="labelStat">HP</p><p className="labelStat">ATK</p><p className="labelStat">DEF</p><p className="labelStat">SATK</p><p className="labelStat">SDEF</p><p className="labelStat">SPD</p>
                         </div>
                         <div className="hrMid">

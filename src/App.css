@@ -28,6 +28,14 @@
     height:         150px;
     width:          1px;   
   }
+  .hrAbout{
+    margin-top: 7px;
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         70px;
+    width:          1px;
+    opacity: 0.2;
+  }
   .margins{
     margin-left: 5%;
     margin-right: 5%;
@@ -64,7 +72,6 @@
     font-family: 'Poppins';
   }
 
-  /*En proceso*/
 
 .pokemonContainerBank{
   display: grid;
@@ -183,7 +190,6 @@
   margin-right: 5%;
 }
 
-
 .pokemonArrow{
   height: 35px;
   display: flex;
@@ -199,28 +205,12 @@
   margin-left: 20px;
 }
 
-
-
-
-.barWrapper {
-  border: 0px solid blue;
-  border-radius: 15px;
-}
-
-.barContainer {
-  background-color: #e0e0e0;
-  height: 10px;
-}
-
 .barCompleted {
   height: 10px;
   border-radius: 15px;
 }
 
-.barLabel {
-  font-size: 0px;
-  color: green;
-}
+.barLabel {font-size: 0px;}
 
 .imgPokemonBig{
   position: absolute;
@@ -277,7 +267,7 @@
 .aboutPokemon{
   display: grid;
   grid-area: 2/1/3/2;
-  grid-template-columns: 33% 34% 33%;
+  grid-template-columns: 30% 2% 31% 2% 35%;
   grid-template-rows: 35% 45% 20%;
   text-align: center;
   justify-self: center;
@@ -287,7 +277,7 @@
 }
 .titleAbout{
   display: grid;
-  grid-area: 1/1/2/4;
+  grid-area: 1/1/2/6;
   font-family: 'PoppinsBold';
   font-size: 24px;
   align-items: center;
@@ -309,7 +299,10 @@
   align-items: center;
   gap: 10px;
 }
-
+.hrLeftSide{
+  display: flex;
+  grid-area: 2/2/3/3;
+}
 .titleAboutStats{
   display: grid;
   grid-area: 2/1/3/2;
@@ -322,17 +315,22 @@
 
 .heightAbout{
   display: grid;
-  grid-area: 2/2/3/3;
+  grid-area: 2/3/3/4;
+}
+.hrLeftSide{
+  display: flex;
+  grid-area: 2/4/3/5;
 }
 .movesAbout{
   display: grid;
-  grid-area: 2/3/3/4;
+  grid-area: 2/5/3/6;
   text-align: left;
-  justify-self: center;
+  justify-content: center;
+  align-items: center;
 }
 .descriptionAbout{
   display: grid;
-  grid-area: 3/1/4/4;
+  grid-area: 3/1/4/6;
   text-align: left;
   font-size: 12px;
   margin-left: 10px;
@@ -376,70 +374,3 @@
   text-align: center;
   font-family: 'PoppinsBold';
 }
-
-/* Colores Electric */
-
-.borderElectric {   border-color:      #f9cf30;}
-.headerElectric {   color:             #f9cf30;}
-.footerElectric {   background-color:  #f9cf30;}
-
-/* Colores Grass*/
-
-.borderGrass    {   border-color:      #74cb48;}
-.headerGrass    {   color:             #74cb48;}
-.footerGrass    {   background-color:  #74cb48;}
-
-/* Colores Water*/
-.borderWater    {   border-color:      #6493eb;}
-.headerWater    {   color:             #6493eb;}
-.footerWater    {   background-color:  #6493eb;}
-
-/* Colores Fire*/
-
-.borderFire     {   border-color:      #f57d31;}
-.headerFire     {   color:             #f57d31;}
-.footerFire     {   background-color:  #f57d31;}
-
-/* Colores Bug*/
-
-.borderBug      {   border-color:      #a78723;}
-.headerBug      {   color:             #a78723;}
-.footerBug      {   background-color:  #a78723;}
-
-/* Colores Steel*/
-
-.borderSteel    {   border-color:      #b7b9d0;}
-.headerSteel    {   color:             #b7b9d0;}
-.footerSteel    {   background-color:  #b7b9d0;}
-
-/* Colores Normal*/
-
-.borderNormal   {   border-color:      #aaa67f;}
-.headerNormal   {   color:             #aaa67f;}
-.footerNormal   {   background-color:  #aaa67f;}
-
-/* Colores Ghost*/
-
-.borderGhost    {   border-color:      #70559b;}
-.headerGhost    {   color:             #70559b;}
-.footerGhost    {   background-color:  #70559b;}
-
-/* Colores Psychic*/
-
-.borderPsychic  {   border-color:      #fb5584;}
-.headerPsychic  {   color:             #fb5584;}
-.footerPsychic  {   background-color:  #fb5584;}
-
-/* Colores Segundo Tipo */
-
-.footerRock     {   background-color:  #b69e31;}
-.footerType     {   background-color:  #666666;}
-.footerFlying   {   background-color:  #A891EC;}
-.footerPoison   {   background-color:  #A43E9E;}
-
-.footerIce      {   background-color:  #9AD6DF;}
-.footerDark     {   background-color:  #75574c;}
-.footerFairy    {   background-color:  #E69EAC;}
-.footerFighting {   background-color:  #c12239;}
-.footerGround   {   background-color:  #dec169;}
-.footerDragon   {   background-color:  #7037ff;}
