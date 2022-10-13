@@ -28,6 +28,9 @@
     height:         150px;
     width:          1px;   
   }
+  p{
+    font-family: 'Poppins';
+  }
   .hrAbout{
     margin-top: 7px;
     border:         none;
@@ -155,7 +158,7 @@
   width: 100vw;
   height: 100vh;
 }
-.divHeaderPokemon {
+.divHeaderPokemonBank {
   display: grid;
   grid-area: 1/1/2/2;
   filter: invert(1000%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(1000%) contrast(100%);;
@@ -169,10 +172,10 @@
   height: 270px;
   pointer-events: none;
 }
-.headerPokemon{
+.headerPokemonBank{
   display: grid;
   height: 55%;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 70% 30%;
   grid-template-rows: 100%;
   opacity: 1;
   align-items: center;
@@ -180,6 +183,7 @@
 .nameAndArrow{
   display: flex;
   grid-area: 1/1/2/2;
+  flex-direction: row;
   align-items: center;
 }
 .idPokemons{
@@ -187,22 +191,25 @@
   grid-area: 1/2/2/3;
   font-size: medium;
   font-family: 'PoppinsBold'; 
-  margin-right: 5%;
+  margin-right: 15%;
+  text-align: end;
 }
 
 .pokemonArrow{
   height: 35px;
   display: flex;
   transform: rotate(90deg);
-  width: 70px;
-  margin-left: 15px
+  width: 40px;
+  justify-self: left;
+  margin-left: 10px;
 }
 
 .pokemonName{
   display: flex;
-  font-size: x-large;
+  font-size: 32px;
   font-family: 'PoppinsBold';
-  margin-left: 20px;
+  justify-self: left;
+  margin-left: 5px;
 }
 
 .barCompleted {
@@ -256,7 +263,8 @@
   gap: 10px;
 }
 .buttonPokemon{
-  width: 70px;
+  width: 80px;
+  height: 100px;
   height: fit-content;
   text-align: center;
   color: white;
@@ -342,16 +350,18 @@
   grid-template-rows: 20% 80%;
 }
 .labelStat{
-  justify-self: center;
+  text-align: right;
   height: 1px;
   font-size: 12px;
+  font-family: 'PoppinsBold';
 }
 .divLabelStat{
+  font-family: 'PoppinsBold';
   margin-left: 10px;
   display: flex;
   grid-area: 2/1/3/2;
   flex-direction: column;
-  width: 10px;
+  width: 30px;
 }
 .hrMid{
   grid-area: 2/2/3/3;

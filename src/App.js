@@ -42,7 +42,7 @@ const filterBySearch = (value) => {
         />}></Route>
 
       <Route path= "/:id" element={<Pokemon
-      pokemons={filteredList}
+      pokemons={state.pokemons.sort((a,b)=>a.id-b.id)}
       />}></Route>
       </Routes>
     </BrowserRouter>

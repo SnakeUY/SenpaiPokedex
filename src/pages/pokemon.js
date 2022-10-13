@@ -30,12 +30,12 @@ const Pokemon =({pokemons}) => {
         <>
         <div className="pokemonContainer">
             <div className={"backgroundPokemon"} style={{backgroundColor: colorPrincipal}} > 
-                <div className="divHeaderPokemon">
-                    <div className="headerPokemon">
+                <div className="divHeaderPokemonBank">
+                    <div className="headerPokemonBank">
                         <Link to="/">
                         <div className="nameAndArrow">
                             <img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="pokemonArrow"/>
-                            <span className="pokemonName" style={{color:"black"}}>{pokemon.name}</span>
+                            <p className="pokemonName" style={{color:"black"}}>{pokemon.name}</p>
                         </div>
                         </Link>
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id,3)}</div>
