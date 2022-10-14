@@ -7,11 +7,20 @@ const Pokemon =({pokemons}) => {
 
     let id = useParams().id
     const [pokemon, setPokemon] = useState(pokemons.find((poke) => poke.id == id))
+    const [ description,setDescription] = useState("")
     
     const [index,setIndex] = useState(pokemons.indexOf (pokemon)) 
 
     useEffect(()=>{
         setPokemon(pokemons.find((poke) => poke.id == id))
+        fetch("https://pokeapi.co/api/v2/pokemon-species/"+id)
+        .then(response => response.json())
+        .then(function(pokeDescription){
+          console.log(pokeDescription)
+          
+           setDescription( pokeDescription.flavor_text_entries.filter((text)=>text.language.name=="en")[0].flavor_text)
+                     
+        })
     },[id,pokemons])
     useEffect(()=>{
         setIndex(pokemons.indexOf (pokemon))
@@ -109,8 +118,8 @@ const Pokemon =({pokemons}) => {
                             <hr className="hrAbout"/>
                         </div>
 
-                        <div className="movesAbout">{pokemon.moves[0]}<br/>{pokemon.moves[1]}<br/><p className="titleAboutStats">Moves</p></div>
-                        <div className="descriptionAbout">{pokemon.description}</div>
+                        <div className="movesAbout">{capitalizeFirstLetter(pokemon.moves[0])}<br/>{capitalizeFirstLetter(pokemon.moves[1])}<br/><p className="titleAboutStats">Moves</p></div>
+                        <div className="descriptionAbout">{description}</div>
                     </div>
                     
                     <div className="baseStats">

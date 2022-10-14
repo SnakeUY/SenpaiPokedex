@@ -5,7 +5,7 @@ import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import { pokemonList } from './services/pokemons';
 function App() {
-  let cantidadpokemon = 20
+  let cantidadpokemon = 10
   const [state,setState] = useState({
     pokemons:pokemonList,
     pokemonbeta:[],
@@ -53,9 +53,8 @@ async function fetchKantoPokemon(){
               weight: (pokeData.weight/10),  
               height: (pokeData.height/10), 
               moves: pokeData.moves.slice(0,2).map((move)=>move.move.name),        
-              description: "Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy",                     
               HP: pokeData.stats[0].base_stat, ATK: pokeData.stats[1].base_stat, DEF: pokeData.stats[2].base_stat, SATK: pokeData.stats[3].base_stat, SDEF: pokeData.stats[4].base_stat, SPD: pokeData.stats[5].base_stat
-          },
+          }
       )
     })
   }
