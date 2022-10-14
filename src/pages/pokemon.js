@@ -12,22 +12,27 @@ const Pokemon =({pokemons}) => {
 
     useEffect(()=>{
         setPokemon(pokemons.find((poke) => poke.id == id))
-    },[id])
+    },[id,pokemons])
     useEffect(()=>{
         setIndex(pokemons.indexOf (pokemon))
     },[pokemon])
 
     const nextPos=index+1;
     const beforePos=index-1;
-
-    let colorPrincipal = getHexType(pokemon.types[0])
-    let colorSecundario
-    if (pokemon.types[1]){
-        colorSecundario = getHexType(pokemon.types[1])
+    let colorPrincipal = null
+    let colorSecundario = null
+    if(pokemon){
+        colorPrincipal = getHexType(pokemon.types[0])
+        
+        if (pokemon.types[1]){
+            colorSecundario = getHexType(pokemon.types[1])
+        }
     }
-    
+
     return(
         <>
+        {(!pokemon)?
+<p>Cargando...</p>:
         <div className="pokemonContainer">
             <div className={"backgroundPokemon"} style={{backgroundColor: colorPrincipal}} > 
                 <div className="divHeaderPokemonBank">
@@ -35,7 +40,7 @@ const Pokemon =({pokemons}) => {
                         <Link to="/">
                         <div className="nameAndArrow">
                             <img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="pokemonArrow"/>
-                            <p className="pokemonName" style={{color:"black"}}>{pokemon.name}</p>
+                            <p className="pokemonName" style={{color:"black"}}>{capitalizeFirstLetter(pokemon.name)}</p>
                         </div>
                         </Link>
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id,3)}</div>
@@ -59,19 +64,23 @@ const Pokemon =({pokemons}) => {
 
                 </div>
                 
-                <img alt="a" src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"} className="imgPokemonBig" />
-                
+                {
+                //<img alt="a" src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"} className="imgPokemonBig" />
+                }
+
+                <img alt="a" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${addLeadingZeros(pokemon.id,3)}.png`} className="imgPokemonBig" />  
+ 
                 <div className="bodyPokemons">
                     
                     <div className="typesPokemon">
                     {(!pokemon.types[1])?
                         <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{pokemon.types[0]}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.types[0])}</p>
                         </>
                     :
                         <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{pokemon.types[0]}</p>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{pokemon.types[1]}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.types[0])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{capitalizeFirstLetter(pokemon.types[1])}</p>
                         </>
                     }
                         </div>
@@ -127,11 +136,16 @@ const Pokemon =({pokemons}) => {
                 </div>
             </div>
         </div>
+        }
          </>
     )
 }
 function addLeadingZeros(num, totalLength) {
     return String(num).padStart(totalLength, '0');
   }
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 
 export default Pokemon
