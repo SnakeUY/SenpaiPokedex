@@ -10,7 +10,7 @@ const Navbar = ({change,stateChange,search}) =>{
                  <span className="textTitle margins">
                     Pokédex
                  </span> </div> 
-                 <div className="typeOrder" onClick={() => change()}>
+                 <div className="typeOrder" onClick={() => change(!stateChange)}>
                  {(!stateChange)?
                     <>
                         #<img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="arrowNav"/>

@@ -5,33 +5,22 @@ import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import { pokemonList } from './services/pokemons';
 function App() {
-  let cantidadpokemon = 50
   const [state,setState] = useState({
-    pokemons:pokemonList,
     pokemonbeta:[],
   })
   const [filteredList, setFilteredList] = useState(Object.assign([],state.pokemonbeta));
   const [orderById,setOrderById]=useState (true)
   const [searchValue,setSeachValue] = useState('')
 
-  useEffect(()=>{
+  let cantidadpokemon = 50
 
+  useEffect(()=>{
     setFilteredList(Object.assign([],orderById ? state.pokemonbeta.sort((a,b)=>a.id-b.id) : state.pokemonbeta.sort(function(a,b){
       if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
       return 0;
   })))
 },[orderById,state.pokemonbeta])
-
-  const changeOrder = ()=>{
-    setOrderById(!orderById)
-  }
-
-
-const filterBySearch = (value) => {
-  setSeachValue(value)
-};
-
 
 useEffect(()=>{
   fetchKantoPokemon()
@@ -66,9 +55,9 @@ async function fetchKantoPokemon(){
     <BrowserRouter>
       <Routes>
         <Route path= "/" element={<Home
-        changeOrder= {changeOrder}
+        changeOrder= {setOrderById}
         orderById= {orderById}
-        filterBySearch= {filterBySearch}
+        filterBySearch= {setSeachValue}
         filteredList= {filteredList.filter((item) =>  item.name.toLowerCase().includes(searchValue.toLowerCase())
         )}
         cantidadpokemon={cantidadpokemon}
