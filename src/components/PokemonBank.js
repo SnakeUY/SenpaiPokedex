@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import getHexType from "../services/typesFun";
+import {getHexType,addLeadingZeros,capitalizeFirstLetter} from "../services/auxiliar";
 import { Loading } from "./Lib";
 const FilterPokemons = ({pokemon,select,cantidadpokemon}) =>{
     return(
@@ -35,12 +35,5 @@ const PokemonBank = ({pokemon,select,numero}) =>{
             </div>
         )}
 
-function addLeadingZeros(num, totalLength) {
-    return String(num).padStart(totalLength, '0');
-  }
 
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 export {PokemonBank,FilterPokemons}

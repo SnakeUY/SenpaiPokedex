@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
-import getHexType from "../services/typesFun";
+import {getHexType, capitalizeFirstLetter, addLeadingZeros} from "../services/auxiliar";
+
 const Pokemon =({pokemons}) => {
-
-
     let id = useParams().id
     const [pokemon, setPokemon] = useState(pokemons.find((poke) => poke.id == id))
     const [ description,setDescription] = useState("")
-    
+
     const [index,setIndex] = useState(pokemons.indexOf (pokemon)) 
 
     useEffect(()=>{
@@ -41,7 +40,7 @@ const Pokemon =({pokemons}) => {
     return(
         <>
         {(!pokemon)?
-<p>Cargando...</p>:
+        <p>Cargando...</p>:
         <div className="pokemonContainer">
             <div className={"backgroundPokemon"} style={{backgroundColor: colorPrincipal}} > 
                 <div className="divHeaderPokemonBank">
@@ -149,12 +148,6 @@ const Pokemon =({pokemons}) => {
          </>
     )
 }
-function addLeadingZeros(num, totalLength) {
-    return String(num).padStart(totalLength, '0');
-  }
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 
 
 export default Pokemon

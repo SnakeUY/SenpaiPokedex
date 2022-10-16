@@ -22,4 +22,14 @@ function getHexType(type) {
         default:            return ""
     }
   }
-  export default getHexType
+
+  function addLeadingZeros(num, totalLength) {
+    return String(num).padStart(totalLength, '0');
+  }
+
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  export {getHexType,addLeadingZeros,capitalizeFirstLetter}
