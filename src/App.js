@@ -12,6 +12,7 @@ function App() {
   })
   const [filteredList, setFilteredList] = useState(Object.assign([],state.pokemonbeta));
   const [orderById,setOrderById]=useState (true)
+  const [searchValue,setSeachValue] = useState('')
 
   useEffect(()=>{
 
@@ -28,9 +29,7 @@ function App() {
 
 
 const filterBySearch = (value) => {
-  setFilteredList(state.pokemonbeta.filter((item) => {
-    return item.name.toLowerCase().includes(value.toLowerCase())
-  }))
+  setSeachValue(value)
 };
 
 
@@ -70,7 +69,8 @@ async function fetchKantoPokemon(){
         changeOrder= {changeOrder}
         orderById= {orderById}
         filterBySearch= {filterBySearch}
-        filteredList= {filteredList}
+        filteredList= {filteredList.filter((item) =>  item.name.toLowerCase().includes(searchValue.toLowerCase())
+        )}
         cantidadpokemon={cantidadpokemon}
         />}></Route>
 
